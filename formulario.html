@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción - Club Estudiantil USMP</title>
+    <link rel="stylesheet" href="css/style4.css">
+</head>
+<body>
+    <header>
+        <nav class="encabezado nave">
+            <img src="img/logo.png" alt="Logo del Club Estudiantil USMP" width="450" height="140">
+            <div class="enlaces">
+                <a href="index.html" class="nav_link">Inicio</a>
+                <a href="eventos.html" class="nav_link">Eventos</a>
+                <a href="nosotros.html" class="nav_link">Nosotros</a>
+                <a href="formulario.html" class="nav_link active">Inscripción</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1 class="titulo">Formulario de Inscripción a Actividades</h1>
+            <p>Completa todos los campos correctamente para participar en nuestras próximas actividades.</p>
+
+            <form id="formInscripcion" class="formulario">
+                <label for="nombre">Nombre completo:</label>
+                <input 
+                    type="text" 
+                    id="nombre" 
+                    name="nombre" 
+                    required 
+                    minlength="3" 
+                    maxlength="50" 
+                    pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,50}" 
+                    title="Solo se permiten letras y espacios. Mínimo 3 caracteres."
+                    placeholder="Ejemplo: Rodrigo Clemente">
+
+                <label for="correo">Correo electrónico:</label>
+                <input 
+                    type="email" 
+                    id="correo" 
+                    name="correo" 
+                    required 
+                    placeholder="rodrigo@correo.com">
+
+                <label for="telefono">Teléfono:</label>
+                <input 
+                    type="tel" 
+                    id="telefono" 
+                    name="telefono" 
+                    required 
+                    pattern="[0-9]{9}" 
+                    title="Debe contener 9 dígitos numéricos (solo números)."
+                    placeholder="Ejemplo: 987654321"
+                    inputmode="numeric">
+
+                <label for="actividad">Selecciona la actividad:</label>
+                <select id="actividad" name="actividad" required>
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="taller_liderazgo">Taller de Liderazgo</option>
+                    <option value="voluntariado">Voluntariado Social</option>
+                    <option value="feria_proyectos">Feria de Proyectos</option>
+                    <option value="conferencia">Conferencia Académica</option>
+                </select>
+
+                <label for="mensaje">Comentarios adicionales:</label>
+                <textarea 
+                    id="mensaje" 
+                    name="mensaje" 
+                    rows="4" 
+                    maxlength="200"
+                    placeholder="Escribe tus comentarios (máximo 200 caracteres)..."></textarea>
+
+                <button type="submit">Enviar inscripción</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Autor de la página: Eduardo Rodrigo Clemente Cabello</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('formInscripcion');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("¡La inscripción fue enviada con éxito!");
+            form.reset();
+        });
+    </script>
+</body>
+</html>
